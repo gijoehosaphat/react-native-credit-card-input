@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from "react";
 import {
   View,
   Image,
+  ImageBackground,
   Text,
   StyleSheet,
   Platform,
@@ -112,7 +113,7 @@ export default class CardView extends Component {
   };
 
   render() {
-    const { focused,
+    const { cardWidth, cardHeight, focused,
       brand, name, number, expiry, cvc, customIcons,
       placeholder, imageFront, imageBack, scale, fontFamily,
       numberStyle, nameStyle, expiryLabelStyle, expiryStyle, CVCStyle } = this.props;
@@ -121,7 +122,7 @@ export default class CardView extends Component {
     const isAmex = brand === "american-express";
     const shouldFlip = !isAmex && focused === "cvc";
 
-    const containerSize = { ...BASE_SIZE, height: BASE_SIZE.height * scale };
+    const containerSize = { width: cardWidth, height: cardHeight };
     const transform = { transform: [
       { scale },
       { translateY: ((BASE_SIZE.height * (scale - 1) / 2)) },
@@ -136,7 +137,8 @@ export default class CardView extends Component {
             perspective={2000}
             clickable={false}
             flip={shouldFlip}>
-          <Image style={[BASE_SIZE, s.cardFace, transform]}
+          <ImageBackground imageStyle={{ borderRadius: 10 * scale }}
+              style={[{ width: cardWidth, height: cardHeight }, s.cardFace]}
               source={imageFront}>
               <Image style={[s.icon]}
                   source={Icons[brand]} />
@@ -157,13 +159,13 @@ export default class CardView extends Component {
                   <Text style={[s.baseText, { fontFamily }, s.amexCVC, !cvc && s.placeholder, focused === "cvc" && s.focused, CVCStyle]}>
                     { !cvc ? placeholder.cvc : cvc }
                   </Text> }
-          </Image>
-          <Image style={[BASE_SIZE, s.cardFace, transform]}
+          </ImageBackground>
+          <ImageBackground style={[{ width: cardWidth, height: cardHeight }, s.cardFace]}
               source={imageBack}>
               <Text style={[s.baseText, s.cvc, !cvc && s.placeholder, focused === "cvc" && s.focused, CVCStyle]}>
                 { !cvc ? placeholder.cvc : cvc }
               </Text>
-          </Image>
+          </ImageBackground>
         </FlipCard>
       </View>
     );
