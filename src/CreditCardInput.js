@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import ReactNative, {
   NativeModules,
   View,
+  ViewPropTypes,
   Text,
+  TextPropTypes,
   StyleSheet,
   ScrollView,
   Dimensions,
@@ -47,10 +49,10 @@ export default class CreditCardInput extends Component {
     labels: PropTypes.object,
     placeholders: PropTypes.object,
 
-    labelStyle: Text.propTypes.style,
-    inputStyle: Text.propTypes.style,
-    formContainerStyle: View.propTypes.style,
-    inputContainerStyle: View.propTypes.style,
+    labelStyle: TextPropTypes.style,
+    inputStyle: TextPropTypes.style,
+    formContainerStyle: ViewPropTypes.style,
+    inputContainerStyle: ViewPropTypes.style,
 
     validColor: PropTypes.string,
     invalidColor: PropTypes.string,
@@ -63,8 +65,6 @@ export default class CreditCardInput extends Component {
     cardBrandIcons: PropTypes.object,
 
     allowScroll: PropTypes.bool,
-
-    additionalInputsProps: PropTypes.objectOf(PropTypes.shape(TextInput.propTypes)),
   };
 
   static defaultProps = {

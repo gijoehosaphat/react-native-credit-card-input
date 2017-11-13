@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import {
   View,
+  ViewPropTypes,
   Text,
+  TextPropTypes,
   TextInput,
   TouchableOpacity,
   StyleSheet,
@@ -24,9 +26,9 @@ export default class CCInput extends Component {
 
     status: PropTypes.oneOf(["valid", "invalid", "incomplete"]),
 
-    containerStyle: View.propTypes.style,
-    inputStyle: Text.propTypes.style,
-    labelStyle: Text.propTypes.style,
+    containerStyle: ViewPropTypes.style,
+    inputStyle: TextPropTypes.style,
+    labelStyle: TextPropTypes.style,
     validColor: PropTypes.string,
     invalidColor: PropTypes.string,
     placeholderColor: PropTypes.string,
@@ -35,7 +37,6 @@ export default class CCInput extends Component {
     onChange: PropTypes.func,
     onBecomeEmpty: PropTypes.func,
     onBecomeValid: PropTypes.func,
-    additionalInputProps: PropTypes.shape(TextInput.propTypes),
   };
 
   static defaultProps = {
