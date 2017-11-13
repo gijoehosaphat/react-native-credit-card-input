@@ -5,7 +5,6 @@ import ReactNative, {
   View,
   ViewPropTypes,
   Text,
-  TextPropTypes,
   StyleSheet,
   ScrollView,
   Dimensions,
@@ -49,8 +48,8 @@ export default class CreditCardInput extends Component {
     labels: PropTypes.object,
     placeholders: PropTypes.object,
 
-    labelStyle: TextPropTypes.style,
-    inputStyle: TextPropTypes.style,
+    labelStyle: ViewPropTypes.style,
+    inputStyle: ViewPropTypes.style,
     formContainerStyle: ViewPropTypes.style,
     inputContainerStyle: ViewPropTypes.style,
 

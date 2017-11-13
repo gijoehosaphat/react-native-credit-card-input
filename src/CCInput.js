@@ -4,7 +4,6 @@ import {
   View,
   ViewPropTypes,
   Text,
-  TextPropTypes,
   TextInput,
   TouchableOpacity,
   StyleSheet,
@@ -27,8 +26,8 @@ export default class CCInput extends Component {
     status: PropTypes.oneOf(["valid", "invalid", "incomplete"]),
 
     containerStyle: ViewPropTypes.style,
-    inputStyle: TextPropTypes.style,
-    labelStyle: TextPropTypes.style,
+    inputStyle: ViewPropTypes.style,
+    labelStyle: ViewPropTypes.style,
     validColor: PropTypes.string,
     invalidColor: PropTypes.string,
     placeholderColor: PropTypes.string,
